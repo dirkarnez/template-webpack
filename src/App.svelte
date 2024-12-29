@@ -1,10 +1,20 @@
 <script>
-	export let name;
+	let { name } = $props();
+
+	let count = $state(0);
+
+	function handleClick() {
+		count += 1;
+	}
 </script>
 
 <main>
 	<h1>Hello {name}!</h1>
 	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+	<button onclick={handleClick}>
+		Clicked {count}
+		{count === 1 ? 'time' : 'times'}
+	</button>	
 </main>
 
 <style>
